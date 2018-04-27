@@ -1,0 +1,54 @@
+<b>Page Size: </b><input [(ngModel)]="strpgsize" style="width:60px;"  type="text" (keypress)="Reload($event.keyCode)"  ng-required="true" />
+<br/>
+<div id="table3" >
+<div class="cp-table-wrapper fancyTable" style="width: 100%; height: 590px;">
+    <div class="cp-fixed-body" >
+    <div class="cp-thead">
+      <table class="cp-table" style="margin-left: 0px;width: 100%;">
+        <thead id="fixedheaderrow"><tr>
+            <th>Submit</th>
+          <th *ngFor="let employeeattribute of arrProperties"><div>{{employeeattribute}}</div></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="cp-tbody" style="height: 512.5px;">
+      <table #tblbodyData id="tblbodyData" class="myTable cp-table cp-table-init"  border="0" cellspacing="0" cellpadding="0"  *ngIf="arrEmployees">
+          <thead style="visibility: collapse;height:1px;">
+            <tr>
+                <th>Submit</th>
+              <th *ngFor="let employeeattribute of arrProperties"><div>{{employeeattribute}}</div></th>
+            </tr>
+        </thead>
+        <tbody id="tbodyelem">
+          <!-- BIND ARRAY TO TABLE -->
+          <tr *ngFor="let employee of arrEmployees | slice:pgstart:pgend" >
+              <td><form #formdata (ngSubmit) = "onClickSubmit(employee['id'],employee['status'])"><input type="submit" class="info" value="submit" /></form></td>
+              <td *ngFor="let employeeattribute of arrProperties">{{employee[employeeattribute]}}</td>
+          </tr>
+        </tbody>
+        
+        </table>
+  </div>
+  <div class="cp-tfoot" style="min-width: 800px;">
+    <table class="cp-table" style="margin-left: 0px;width: 100%;">
+        <tfoot *ngIf="displaypageFooter">
+            <tr id="trfooter">
+              <td [colSpan]="arrProperties.length">
+                  <div style="width:100%">
+                      <ul class="pagination">
+                        <li *ngIf="boundaryLinks" class="page-item" [ngClass]="{'disabled': noPreviousBtn()}"><a class="page-link" (click)="Goto(1)">{{getPgText('first')}}</a></li>
+                        <li *ngIf="directionLinks" class="page-item" [ngClass]="{'disabled': noPreviousBtn()}"><a class="page-link" (click)="Goto(pageNumber - 1)">{{getPgText('previous')}}</a></li>
+                        <li *ngFor="let page of pages" class="page-item" [ngClass]="{'active': page.active}"><a class="page-link" (click)="Goto(page.number)">{{page.text}}</a></li>
+                        <li *ngIf="directionLinks" class="page-item" [ngClass]="{'disabled': noNextBtn()}"><a class="page-link" (click)="Goto(pageNumber + 1)">{{getPgText('next')}}</a></li>
+                        <li *ngIf="boundaryLinks" class="page-item" [ngClass]="{'disabled': noNextBtn()}"><a class="page-link" (click)="Goto(totalPages)">{{getPgText('last')}}</a></li>
+                      </ul>
+                    </div>
+              </td>
+            </tr>
+          </tfoot>
+      </table></div>
+    </div>
+  </div>
+</div>
+<p>{{callUpdate()}}</p>

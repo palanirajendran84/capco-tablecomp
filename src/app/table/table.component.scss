@@ -1,0 +1,94 @@
+div#table3 {
+    background-color: #aaa198;
+    border: 1px solid #5b636b;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,1), 0 3px 0 rgba(0,0,0,0.06) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,1), 0 3px 0 rgba(0,0,0,0.05) inset;
+    box-shadow: 0px 1px 0px rgba(255,255,255,1), inset 0px 3px 0px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    margin-left: 10px;margin-right: 10px;
+    padding: 5px;
+}
+
+/* @group Reset */
+
+.cp-table,
+.cp-table thead,
+.cp-table tfoot,
+.cp-table tbody,
+.cp-table tr,
+.cp-table th,
+.cp-table td {
+	/* position */
+    margin: 0;
+    
+    /* size */
+	padding: 3;
+
+	/* text */
+	
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+    border: 1px solid white;
+	vertical-align: middle;
+    }
+    .cp-table td{
+        background-color: gainsboro;
+        white-space: nowrap;
+    }
+    .cp-table th{
+        background-color: dimgrey;
+        font-weight: bold;
+        color:white;white-space: nowrap;
+        
+    }
+.cp-table {
+	/* appearance */
+    border-collapse: collapse;
+    border-spacing: 0;
+	}
+
+/* @end */
+
+/* @group Content */
+
+.cp-table-wrapper,
+.cp-table-wrapper .cp-thead,
+.cp-table-wrapper .cp-tfoot,
+.cp-table-wrapper .cp-fixed-body .cp-tbody,
+.cp-table-wrapper .cp-tbody {
+	/* appearance */
+	overflow: hidden;
+	
+	/* position */
+	position: relative;
+	}
+    
+    .cp-table-wrapper .cp-fixed-body .cp-tbody,
+	.cp-table-wrapper .cp-tbody {
+		/* appearance */
+	    overflow: auto;
+		}
+
+		.cp-table-wrapper .cp-table .cp-cell {
+			/* appearance */
+			overflow: hidden;
+			
+			/* size */
+		    height: 1px;
+			}
+            .cp-table-wrapper .cp-fixed-column,
+            .cp-table-wrapper .cp-fixed-body {
+                /* position */
+                top: 0;
+                left: 0;
+                position: absolute;
+                }
+                
+            .cp-table-wrapper .cp-fixed-column {
+                /* position */
+                z-index: 1;
+                }
+/* @end */
