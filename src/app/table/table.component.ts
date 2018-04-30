@@ -25,7 +25,7 @@ export class TableComponent implements OnInit, AfterViewInit, AfterContentChecke
   public lastText: string = "»";
   public previousText: string = "‹";
   public nextText: string = "›";
-  public pgsize:number=2;
+  public pgsize:number=10;
   public displaypageFooter:boolean = true;
   public strpgsize:string;
   public pgstart:number =1;
